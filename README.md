@@ -1,6 +1,6 @@
 # Project Description
 
-This project aims to set up a Docker container using Docker Compose to run a Flask application with Nginx as a reverse proxy. The goal is to expose the Flask application on port 8080 and forward requests from Nginx to the Flask app running on port 5000.
+This project aims to set up a Docker container using Docker Compose to run a Flask application with Nginx as a reverse proxy. The goal is to expose the Flask application on port 8080 and forward requests from Nginx to the Flask app running on port 5000. DO NOT USE THIS SOLUTION in real-life projects, because in this project I run Nginx and Flask in the same container just for the practice, but each container should focus on a specific task, making the application more flexible and maintainable.
 
 ## Flask Application:
 
