@@ -32,7 +32,3 @@ To stop and remove the containers, use the following command:
 docker-compose down
 
 This command stops the containers and removes the associated resources.
-
-## Conclusion:
-
-In this project, a Flask application was containerized and deployed using Docker Compose. Nginx was used as a reverse proxy to forward requests from port 8080 to the Flask application running on port 5000. By utilizing Docker Compose, the setup and management of the application became more streamlined and reproducible.
