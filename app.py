@@ -5,7 +5,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello World!</p>"
+    try:
+        return "<p>Hello World!</p>"
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
 
 
 if __name__ == "__main__":
