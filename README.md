@@ -29,6 +29,8 @@ This command builds the Docker images, starts the containers, and sets up the ne
 
 To stop and remove the containers, use the following command:
 
-docker-compose down
+```
+    docker-compose down
+```
 
 This command stops the containers and removes the associated resources.
