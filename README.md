@@ -1,23 +1,22 @@
 # Project Description
 
-This project aims to set up a Docker container using Docker Compose to run a Flask application with Nginx as a reverse proxy. The goal is to expose the Flask application on port 8080 and forward requests from Nginx to the Flask app running on port 5000. DO NOT USE THIS SOLUTION in real-life projects, because in this project I run Nginx and the Flask app in the same container only for the purpose of practice, but each container should focus on a specific task, making the application more flexible and maintainable.
+This project sets up a Dockerized environment for running a Flask web application behind an Nginx reverse proxy. The project uses Docker Compose to manage these services, aiming to follow best practices by running each service in its own container.
 
 ## Flask Application:
 
-The Flask application is a simple "Hello World" web application. It responds with a HTML message displaying "Hello World!" when accessed.
+The Flask application is a basic "Hello World" web app. When accessed, it responds with an HTML message that says "Hello World!".
 
 ## Docker Compose Configuration:
 
-The project utilizes Docker Compose to define and manage the services. The docker-compose.yml file defines two services: app and nginx.
+This project employs Docker Compose to define and run the services, making it easier to manage multi-container Docker applications. The docker-compose.yaml file outlines two services: app and nginx.
 
-The app service is built using the current directory as the build context, which includes the Flask application code. It installs the Python dependencies specified in the requirements.txt file and starts the Flask application using the CMD directive.
+- App Service: Built using the current directory as the build context, which includes the Flask application's code. This service installs Python dependencies from requirements.txt and starts the Flask app.
 
-The nginx service uses the official Nginx Docker image. It maps port 8080 on the host machine to port 80 inside the container, allowing access to the Nginx reverse proxy. The volumes directive mounts the nginx.conf file from the local directory to the Nginx container, configuring the reverse proxy settings.
+- Nginx Service: Utilizes the official Nginx Docker image. It maps port 8080 on the host machine to port 80 inside the container. The Nginx configuration (nginx.conf) for the reverse proxy is also mounted into the container.
 
 ## Nginx Configuration:
 
-The nginx.conf file contains the Nginx configuration that sets up the reverse proxy to forward requests from Nginx to the Flask application.
-The configuration listens on port 80 and defines a location block that proxies all requests to the app service running on port 5000.
+The nginx.conf file houses the Nginx configuration that sets up the reverse proxy. The proxy forwards requests arriving at Nginx (port 80 inside the container) to the Flask application running on port 5000 inside its respective container.
 
 ## Running the Application:
 
@@ -26,12 +25,10 @@ To run the application, make sure you have Docker and Docker Compose installed o
 ```
     docker-compose up --build
 ```
-This command builds the Docker images, starts the containers, and sets up the networking between the services. You can then access the Flask application by visiting http://localhost:8080 in your web browser.
+This command builds the Docker images if they don't exist or have been changed, starts the containers, and sets up the network between them. You can access the Flask app by navigating to http://localhost:8080 in your web browser.
 
-To stop and remove the containers, use the following command:
+To stop and remove all containers and resources created by docker-compose up, use:
 
 ```
     docker-compose down
 ```
-
-This command stops the containers and removes the associated resources.
