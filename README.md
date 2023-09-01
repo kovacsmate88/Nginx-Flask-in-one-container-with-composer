@@ -23,8 +23,9 @@ The configuration listens on port 80 and defines a location block that proxies a
 
 To run the application, make sure you have Docker and Docker Compose installed on your machine. Then, execute the following command in the terminal from the directory where your docker-compose.yaml file is located:
 
-docker-compose up
-
+```
+    docker-compose up
+```
 This command builds the Docker images, starts the containers, and sets up the networking between the services. You can then access the Flask application by visiting http://localhost:8080 in your web browser.
 
 To stop and remove the containers, use the following command:
